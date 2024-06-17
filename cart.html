@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+
+    <style>
+      body {
+        background-image: url("https://c4.wallpaperflare.com/wallpaper/325/140/18/alone-stars-purple-background-hd-wallpaper-preview.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ccc;
+        padding: 10px 0;
+      }
+      .cart-item img {
+        border-radius: 10px;
+        width: 100px;
+        height: 100px;
+      }
+      h3 {
+        color: yellow;
+      }
+      .a {
+        color: red;
+      }
+      .b {
+        color: green;
+      }
+      .cart-item-info {
+        flex: 1;
+        margin-left: 20px;
+      }
+      .cart-item button {
+        padding: 5px 10px;
+        background-color: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      .cart-total {
+        margin-top: 20px;
+        text-align: right;
+        font-size: 1.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="color: yellow">Shopping Cart</h1>
+    <div id="cart-list"></div>
+    <div class="cart-total">
+      <span id="total-price" style="color: red">Total: 0đ</span>
+    </div>
+
+    <script>
+      function loadCart() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartList = document.getElementById("cart-list");
+        cartList.innerHTML = "";
+        let total = 0;
+
+        cart.forEach((product, index) => {
+          const cartItem = document.createElement("div");
+          cartItem.className = "cart-item";
+
+          cartItem.innerHTML = `
+                    <img src="${product.url}" alt="${product.name}">
+                    <div class="cart-item-info">
+                        <h3>${product.name}</h3>
+                        <p class="a">Price: ${product.coin.toLocaleString(
+                          "vi-VN"
+                        )}đ</p>
+                        <p class="b">Material: ${product.material}</p>
+                    </div>
+                    <button onclick='removeFromCart(${index})'>Remove</button>
+                `;
+
+          cartList.appendChild(cartItem);
+          total += product.coin;
+        });
+
+        document.getElementById(
+          "total-price"
+        ).textContent = `Total: ${total.toLocaleString("vi-VN")}đ`;
+      }
+
+      function removeFromCart(index) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        loadCart();
+      }
+      function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartCountElement = document.getElementById("cart-count");
+        cartCountElement.textContent = cart.length;
+      }
+
+      document.addEventListener("DOMContentLoaded", loadCart);
+    </script>
+  </body>
+</html>

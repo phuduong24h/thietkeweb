@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bán Hàng ONLINE</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="icon"  href="favicon.io/icon.ico" />
+    <link rel="stylesheet" href="baner/style.css">
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    
+    <style>
+      .cart {
+            position: relative;
+            display: inline-block;
+            margin-left: 70px;
+  margin-top: 50px;
+  height: 30px;
+  width: 90px;
+  background-color: rgb(225, 170, 20);
+  display: flex;
+  border-radius: 10px;
+        }
+
+        .cart .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+      .head {
+        height: 50px;
+        width: 100%;
+        background-color: black;
+      }
+      .search-results {
+        display: none;
+            margin-left: 100px;
+            margin-top: 78px;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            max-width: 300px;
+            width: 100%;
+            z-index: 1000;
+            border-top:none ;
+        }
+        .search-result-item {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #ccc;
+            border-top: none;
+        }
+        .search-result-item:hover {
+            background-color: #f0f0f0;
+        }
+      body{
+        background-color: black;
+        position: relative; 
+        overflow-x: hidden;
+        background-image: url('https://gcs.tripi.vn/public-tripi/tripi-feed/img/474117pIT/background-3d-chat-lu_100423661.jpg');
+      } 
+      
+     .son-son-son{
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+     }
+     .add-to-cart{
+      height: 30px;
+      width: 50px;
+      right: 0;
+      position: absolute;
+
+     }
+     .very-child-body{
+      overflow-x: hidden;
+     }
+     a {
+            text-decoration: none;
+        }
+    </style>
+
+  </head>
+
+  <body>
+    
+    
+    <div class="head"></div>
+    <div class="head01">
+    <div class="head1">
+      <div class="child1">
+        <img
+          class="very-child"
+          src="https://logo.hostinger.com/assets/car-service-1-DcDW_9JB.png"
+          alt=""
+        />
+        <form class="very-child2" onsubmit="searchProducts(); return false;">
+          <input type="text" id="search-input" placeholder="bạn cần gì?" oninput="suggestProducts()" />
+          <button class="btn-with-icon" type="submit"></button>
+      </form>
+      <div id="search-results" class="search-results"></div>
+  
+   
+  
+        <a class="cart" href="cart.html">
+          <div class="img1"></div>
+          <span class="ab"> giỏ hàng</span>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+        <div class="very-child3">hỏi đáp</div>
+        <b class="hotline">hotline: 1900 1 năm 0 chín</b>
+        <a href="account.html"
+          ><div class="icount">
+            <div class="icount1"></div></div
+        ></a>
+      </div>
+      <div class="child2">
+        <div class="menu">
+          <ul>
+            <li>
+              <a id="content">giày Adidas</a>
+
+              <ul class="sub-menu">
+                <a class="man" href="#"><span style="">giày nam</span></a>
+                <a class="woman" href="#"><span style="">giày nữ</span></a>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu">
+          <ul>
+            <li>
+              <a id="content">giày Nike</a>
+
+              <ul class="sub-menu">
+                <a class="man" href="#"><span style="">giày nam</span></a>
+                <a class="woman" href="#"><span style="">giày nữ</span></a>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="menu">
+          <ul>
+            <li>
+              <a id="content">giày Puma</a>
+
+              <ul class="sub-menu">
+                <a class="man" href="#"><span style="">giày nam</span></a>
+                <a class="woman" href="#"><span style="">giày nữ</span></a>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <a class="lucky-wheel"  href="test.html"><div class="back"></div></a>
+      </div>
+    </div>
+  </div>
+
+    <div class="body00"> 
+    <div class="body000">
+    Space Sneaker</div></div>
+   
+    <div class="slider">
+      <div class="list">
+          <div class="item">
+              <img src="favicon.io/background1.jpg" alt="">
+          </div>
+          <div class="item">
+              <img src="https://cdn.sablanca.vn/ImageNews/Banner%2Fsale-off.jpg" alt="">
+          </div>
+          <div class="item">
+              <img src="https://demoda.vn/wp-content/uploads/2022/02/anh-sale-banner-sale-nen-tim-vang-800x534.jpg" alt="">
+          </div>
+          <div class="item" >
+              <img src="https://giaysneaker.store/media/magefan_blog/lo-dien-hinh-anh-cua-mau-giay-nike-dunk-high-somos-famenia.jpg" alt="" >
+          </div>
+          <div class="item">
+              <img src="https://vn-test-11.slatic.net/p/ad0a340c37a530b551c8d3d1d04c3ee5.jpg" alt=""  >
+          </div>
+      </div>
+      <div class="buttons">
+          <button id="prev"><</button>
+          <button id="next">></button>
+      </div>
+      <ul class="dots">
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+      </ul>
+  </div>
+
+    <script src="baner/main.js"></script>
+
+
+
+    <div  class="head-menu" style="font-size: 50px; color: #e01515;">SẢN PHẨM</div>
+    <div style="display: flex; position: relative;">
+      <img src="favicon.io/Screenshot 2024-06-15 230933.png" class="abcd"></img>
+    <div class="body1">
+    <!--   <span class="span-body1"> giày Adidas</span> -->
+      <div class="conveyor-belt" id="product-list">
+       
+        </div>
+    
+      </div>
+      <img src="favicon.io/Screenshot 2024-06-15 234458.png" class="abcde"></img></div>
+  </div>
+  <script>
+ function addToCart(product) {
+    try {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${product.name} has been added to your cart.`);
+        updateCartCount(); // Cập nhật số lượng sản phẩm trong giỏ hàng sau khi thêm vào
+    } catch (error) {
+        console.error('Error adding to cart:', error);
+    }
+}
+
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartCountElement = document.getElementById('cart-count');
+    cartCountElement.textContent = cart.length; // Cập nhật số lượng sản phẩm trong giỏ hàng
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+
+    function renderProducts() {
+        const productList = document.getElementById('product-list');
+        productList.innerHTML = '';
+
+        for (let i = 0; i < products.length; i += 2) {
+            const childBodyDiv = document.createElement('div');
+            childBodyDiv.className = `child-body child-body${i / 2 + 1}`;
+
+            for (let j = 0; j < 2; j++) {
+                if (i + j >= products.length) break;
+
+                const product = products[i + j];
+                const productDiv = document.createElement('div');
+                productDiv.className = 'very-child-body';
+
+                productDiv.onclick = () => viewProduct(product);
+
+                const sonDiv = document.createElement('div');
+                sonDiv.className = 'son';
+
+                const sonSonSonDiv = document.createElement('div');
+                sonSonSonDiv.className = 'son-son-son';
+                sonSonSonDiv.style.backgroundImage = `url(${product.url})`;
+
+                sonDiv.appendChild(sonSonSonDiv);
+                productDiv.appendChild(sonDiv);
+
+                const sonSonDiv = document.createElement('div');
+                sonSonDiv.className = 'son_son';
+
+                const sonChildSonDiv = document.createElement('div');
+                sonChildSonDiv.className = 'son_child_son';
+                sonChildSonDiv.innerHTML = `<b>${product.name}</b><b><br>${product.coin.toLocaleString('vi-VN')}đ</b>`;
+
+                const addToCartButton = document.createElement('button');
+                addToCartButton.className = 'add-to-cart';
+                addToCartButton.innerHTML = '<i class="fas fa-cart-plus"></i>';
+                addToCartButton.onclick = (event) => {
+                    event.stopPropagation();
+                    addToCart(product);
+                };
+
+                sonSonDiv.appendChild(sonChildSonDiv);
+                sonChildSonDiv.appendChild(addToCartButton);
+                productDiv.appendChild(sonSonDiv);
+
+                childBodyDiv.appendChild(productDiv);
+            }
+
+            productList.appendChild(childBodyDiv);
+        }
+    }
+
+    function viewProduct(product) {
+        localStorage.setItem('selectedProduct', JSON.stringify(product));
+        window.location.href = 'product.html';
+    }
+
+    // Initial render of products
+    renderProducts();
+
+    // Update cart count initially
+    updateCartCount();
+});
+
+
+
+//--------------------------------------------------------------
+    
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    displayProducts();
+});
+
+//------------------------------------------------------------------------
+  
+        const scrollContainer = document.getElementById("product-list");
+let isMouseDown = false;
+let startX;
+let scrollLeft;
+
+scrollContainer.addEventListener("mousedown", (event) => {
+    isMouseDown = true;
+    scrollContainer.style.cursor = 'grabbing';
+    startX = event.pageX - scrollContainer.offsetLeft;
+    scrollLeft = scrollContainer.scrollLeft;
+    event.preventDefault();
+});
+
+scrollContainer.addEventListener("mouseleave", () => {
+    isMouseDown = false;
+    scrollContainer.style.cursor = 'grab';
+});
+
+scrollContainer.addEventListener("mouseup", () => {
+    isMouseDown = false;
+    scrollContainer.style.cursor = 'grab';
+});
+
+scrollContainer.addEventListener("mousemove", (event) => {
+    if (!isMouseDown) return;
+    event.preventDefault();
+    const x = event.pageX - scrollContainer.offsetLeft;
+    const walk = (x - startX) * 1.5; // Tốc độ cuộn
+    scrollContainer.scrollLeft = scrollLeft - walk;
+});
+
+</script>
+
+      <div class="exclusive_products">
+        <div class="chat-icon" id="chat-icon" style="z-index: 1;">
+          <img src="favicon.io/bubble-chat.png" alt="Chat Icon">
+      </div>
+      <div class="chat-container" id="chat-container">
+          <div class="chat-header">Chat với chúng tôi!</div>
+          <div class="chat-body" id="chat-body">
+              <!-- Messages will appear here -->
+          </div>
+          <div class="chat-input">
+              <input type="text" id="chat-input" placeholder="Nhập tin nhắn...">
+              <button onclick="sendMessage()">Gửi</button>
+          </div>
+      </div>
+      <div class="logo-container">
+        <div class="logo nike"></div>
+        <div class="logo fila"></div>
+        <div class="logo balen"></div>
+        <div class="logo adidas"></div>
+        <div class="logo versage"></div>
+        <div class="logo supreme"></div>
+</div>
+<div class="image-container">
+  <div class="image-box image1" data-video="video/Chromox_hãy tạo video người _2762639220.mp4"></div>
+  <div class="image-box image2" data-video="video/Chromox_làm lại cho nó chuyể_4060327880.mp4"></div>
+  <div class="image-box image3" data-video="video/Chromox_ hãy tạo video người_895483576.mp4"></div>
+</div>  </div>
+<div id="videoPopup" class="video-popup">
+  <span class="close">&times;</span>
+  <video id="videoPlayer" controls>
+      <source id="videoSource" src="" type="video/mp4">
+      Your browser does not support the video tag.
+  </video>
+</div>
+    
+      <script>document.addEventListener('DOMContentLoaded', () => {
+        const imageBoxes = document.querySelectorAll('.image-box');
+        const videoPopup = document.getElementById('videoPopup');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const videoSource = document.getElementById('videoSource');
+        const closeBtn = document.querySelector('.close');
+    
+        imageBoxes.forEach(box => {
+            box.addEventListener('click', () => {
+                const videoSrc = box.getAttribute('data-video');
+                videoSource.src = videoSrc;
+                videoPlayer.load();
+                videoPopup.style.display = 'flex';
+            });
+        });
+    
+        closeBtn.addEventListener('click', () => {
+            videoPopup.style.display = 'none';
+            videoPlayer.pause();
+        });
+    
+        window.addEventListener('click', (event) => {
+            if (event.target == videoPopup) {
+                videoPopup.style.display = 'none';
+                videoPlayer.pause();
+            }
+        });
+    });
+    </script>
+      <script>document.addEventListener("DOMContentLoaded", function() {
+        const imageContainers = document.querySelectorAll('.image-container');
+      
+        function handleScroll() {
+          imageContainers.forEach(imageContainer => {
+            const rect = imageContainer.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      
+            if (rect.top <= windowHeight && rect.bottom >= 0) {
+              imageContainer.classList.add('visible');
+            } else {
+              imageContainer.classList.remove('visible');
+            }
+          });
+        }
+      
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Gọi ngay khi trang tải xong
+      });
+      
+    </script>
+    <script>document.addEventListener("DOMContentLoaded", function() {
+      const logoContainer = document.querySelector('.logo-container');
+  
+      function handleScroll() {
+          const rect = logoContainer.getBoundingClientRect();
+          const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  
+          if (rect.top <= windowHeight && rect.bottom >= 0) {
+              logoContainer.classList.add('visible');
+          } else {
+              logoContainer.classList.remove('visible');
+          }
+      }
+  
+      window.addEventListener('scroll', handleScroll);
+      handleScroll(); // Gọi ngay khi trang tải xong
+  });
+  
+  </script>
+      <script>
+        const chatIcon = document.getElementById('chat-icon');
+        const chatContainer = document.getElementById('chat-container');
+        const chatBody = document.getElementById('chat-body');
+        const chatInput = document.getElementById('chat-input');
+
+        chatIcon.addEventListener('click', () => {
+            chatContainer.style.display = chatContainer.style.display === 'none' || chatContainer.style.display === '' ? 'flex' : 'none';
+        });
+
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message) {
+                appendMessage('user', message);
+                chatInput.value = '';
+                setTimeout(() => {
+                    const aiResponse = getAIResponse(message);
+                    appendMessage('ai', aiResponse);
+                }, 1000);
+            }
+        }
+
+        function appendMessage(sender, message) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('chat-message', sender);
+            messageElement.innerText = message;
+            chatBody.appendChild(messageElement);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function getAIResponse(userMessage) {
+            // Đây là phần mô phỏng, bạn có thể tích hợp API AI thật tại đây.
+            const responses = [
+                "Xin chào! Làm thế nào tôi có thể giúp bạn hôm nay?",
+                "Cảm ơn bạn đã liên hệ với chúng tôi.",
+                "Tôi rất tiếc về sự bất tiện này. Bạn có thể cung cấp thêm thông tin không?",
+                "Chúng tôi sẽ giải quyết vấn đề này sớm nhất có thể."
+            ];
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+    </script>
+    <div class="behind">
+      <span style=" position: absolute;">công ty cổ phần trách nhiệm 3 thành viên</span>
+      <div class="end_bottom" style="margin-left: 80%;position: absolute;"><span>địa chỉ công ty: 140 LÊ TRỌNG TẤN</span>
+        <span class="button-links">
+          <a href="https://www.instagram.com/" title="e là người yêu của a">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/" title="e là người yêu của a">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=100015572118885"
+            title="e là người yêu của a"
+          >
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </span>
+        <span>www.http.shopbangiay.docladepVietNam</span></div>
+    </div>
+    
+  </body>
+</html>

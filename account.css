@@ -1,0 +1,286 @@
+.account1 {
+  margin-top: 10%;
+  height: 300px;
+  width: 400px;
+  background-color: yellow;
+  border-radius: 10px;
+  position: relative;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.span1 {
+  color: aqua;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+.intext {
+  height: 10px;
+  width: 50px;
+  margin-left: 300px;
+  margin-top: 10px;
+  border-radius: 20px;
+  border-width: 5px;
+  background: rgb(5, 5, 32);
+  animation: color-run 5s linear infinite;
+}
+
+.intext:hover {
+  color: yellow;
+  background-color: blueviolet;
+  border-color: blue;
+}
+.intext:active {
+  background-color: yellow;
+  color: blueviolet;
+}
+.intext {
+  height: 40px;
+  width: 60px;
+  display: inline-block;
+
+  background-color: transparent;
+  position: relative;
+  border: none;
+  outline: none;
+  transition: 0.5s;
+  color: yellowgreen;
+  background-color: rgb(11, 30, 16);
+  white-space: nowrap; /* Ngăn tràn ra ngoài */
+  border-radius: 5px;
+  overflow: hidden;
+}
+.intext span {
+  position: absolute;
+  height: 60px;
+  width: 100px;
+  display: block;
+}
+.intext span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, transparent, blue);
+  animation: aline 1s linear infinite;
+}
+@keyframes aline {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+.intext span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, red);
+  animation: aline1 1s linear infinite;
+  animation-delay: 0.25s;
+}
+@keyframes aline1 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+.intext span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(180deg, transparent, rgb(204, 21, 146));
+  animation: aline2 1s linear infinite;
+  animation-delay: 0.5s;
+}
+@keyframes aline2 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+.intext span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgb(177, 12, 227));
+  animation: aline3 1s linear infinite;
+  animation-delay: 0.75s;
+}
+@keyframes aline3 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+.form-group {
+  margin-bottom: 20px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Thiết lập giao diện cho nhãn (label) */
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  position: relative;
+}
+
+/* Thiết lập giao diện cho ô nhập liệu (input) */
+input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #e2d8d8;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-left: 10%;
+}
+
+/* Thiết lập giao diện cho thông báo lỗi và phản hồi */
+.form-message {
+  color: rgb(201, 75, 75);
+  font-size: 15px;
+  margin-left: 10%;
+}
+
+.button1 {
+  position: absolute;
+  overflow: hidden;
+  width: 140px;
+  height: 50px;
+  border-radius: 25px;
+  color: #f7f7f7;
+  background: #073328;
+  border: 0;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.button-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: 0.3s;
+}
+
+.button-links {
+  opacity: 0;
+  justify-content: space-around;
+  padding: 0 20px;
+  transition: 0.2s;
+}
+
+.button-text {
+  justify-content: center;
+  color: inherit;
+  font-size: 16px;
+  gap: 2px;
+}
+
+.button-links a {
+  translate: 0 25px;
+  transition: 0.3s;
+}
+
+.button1:hover {
+  border-radius: 6px;
+}
+
+.button1:hover .button-links {
+  opacity: 1;
+}
+.button1:hover .button-links a {
+  translate: 0;
+}
+
+.button1:hover .button-text {
+  translate: 0 -100%;
+}
+.inFaceBook {
+  margin-left: 35%;
+}
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: green;
+  color: rgb(169, 15, 15);
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.toast.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}

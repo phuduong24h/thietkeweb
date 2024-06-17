@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details</title>
+    <style>
+      .product-details {
+        text-align: center;
+        padding: 20px;
+      }
+      .product-details img {
+        max-width: 100%;
+        height: auto;
+      }
+      .comments {
+        margin-top: 20px;
+        text-align: left;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .comment-form {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+      .comment-form textarea {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+      }
+      .comment {
+        border-bottom: 1px solid #ccc;
+        padding: 10px 0;
+      }
+      .textarea {
+        height: 150px;
+        width: 90%;
+      }
+      .add-to-cart {
+        padding: 10px 20px;
+        background-color: green;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+      button:hover {
+        background-color: yellow;
+      }
+      button:active {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="product-details" id="product-details">
+      <h1 id="product-name"></h1>
+      <img id="product-image" src="" alt="Product Image" />
+      <p id="product-price"></p>
+      <p id="product-material"></p>
+      <button class="add-to-cart" id="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="comments">
+      <h2>Comments</h2>
+      <div id="comment-list"></div>
+    </div>
+
+    <div class="comment-form">
+      <h2>Write your Comment</h2>
+      <textarea
+        class="textarea"
+        id="comment-text"
+        placeholder="Write your comment here..."
+        style="height: 100px; width: 90%; margin-left: 5%"
+      ></textarea>
+      <button id="submit-comment">Submit</button>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const product = JSON.parse(localStorage.getItem("selectedProduct"));
+        if (product) {
+          document.getElementById("product-name").textContent = product.name;
+          document.getElementById("product-image").src = product.url;
+          document.getElementById(
+            "product-price"
+          ).textContent = `${product.coin.toLocaleString("vi-VN")}đ`;
+          document.getElementById(
+            "product-material"
+          ).textContent = `Material: ${product.material}`;
+
+          document.getElementById("add-to-cart").onclick = () =>
+            addToCart(product);
+        } else {
+          document.getElementById("product-details").innerHTML =
+            "<p>Product details not found.</p>";
+        }
+
+        // Load and display comments
+        const comments =
+          JSON.parse(localStorage.getItem(`comments_${product.name}`)) || [];
+        const commentList = document.getElementById("comment-list");
+        comments.forEach((comment) => {
+          const commentDiv = document.createElement("div");
+          commentDiv.className = "comment";
+          commentDiv.textContent = comment;
+          commentList.appendChild(commentDiv);
+        });
+
+        // Handle comment submission
+        document
+          .getElementById("submit-comment")
+          .addEventListener("click", () => {
+            const commentText = document.getElementById("comment-text").value;
+            if (commentText) {
+              comments.push(commentText);
+              localStorage.setItem(
+                `comments_${product.name}`,
+                JSON.stringify(comments)
+              );
+
+              const commentDiv = document.createElement("div");
+              commentDiv.className = "comment";
+              commentDiv.textContent = commentText;
+              commentList.appendChild(commentDiv);
+
+              document.getElementById("comment-text").value = "";
+            }
+          });
+      });
+      function addToCart(product) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push(product);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(`${product.name} has been added to your cart.`);
+        updateCartCount(); // Cập nhật số lượng sản phẩm trong giỏ hàng
+      }
+    </script>
+  </body>
+</html>

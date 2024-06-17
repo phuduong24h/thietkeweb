@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Quản lý sản phẩm</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+      }
+      #main-header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      #main-footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1rem 0;
+        margin-top: 30px;
+      }
+      .btn {
+        display: inline-block;
+        color: #fff;
+        background: #333;
+        padding: 5px 20px;
+        margin-top: 10px;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background: #555;
+      }
+      .form-group {
+        margin: 15px 0;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+      }
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
+      .action-buttons {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="main-header">
+      <div class="container">
+        <h1>Quản lý sản phẩm</h1>
+        <button class="btn" onclick="logout()">Logout</button>
+      </div>
+    </header>
+    <div class="container">
+      <h2>Thêm sản phẩm mới</h2>
+      <form id="product-form">
+        <div class="form-group">
+          <label for="name">Tên sản phẩm:</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="form-group">
+          <label for="coin">Giá:</label>
+          <input type="number" id="coin" required />
+        </div>
+        <div class="form-group">
+          <label for="url">URL hình ảnh:</label>
+          <input type="text" id="url" required />
+        </div>
+        <div class="form-group">
+          <label for="material">Chất liệu:</label>
+          <input type="text" id="material" required />
+        </div>
+        <button type="submit" class="btn">Thêm sản phẩm</button>
+      </form>
+
+      <h2>Danh sách sản phẩm</h2>
+      <table id="product-table">
+        <thead>
+          <tr>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>URL hình ảnh</th>
+            <th>Chất liệu</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="product-list">
+          <!-- Sản phẩm sẽ được thêm vào đây -->
+        </tbody>
+      </table>
+    </div>
+    <footer id="main-footer">
+      <div class="container">
+        <p>The web is completed by DHP in 2024</p>
+      </div>
+    </footer>
+    <script>
+      const initialProducts = [
+        {
+          name: "Samba OG Shoes",
+          coin: 2700000,
+          url: "image_product.io/samba/sam_white.jpg",
+          material: "Leather",
+        },
+        {
+          name: "Superstar Shoes",
+          coin: 2800000,
+          url: "image_product.io/samba/superstar.jpg",
+          material: "Leather",
+        },
+        {
+          name: "Supernova Stride Shoes",
+          coin: 3200000,
+          url: "image_product.io/supernova/super1.jpg",
+          material: "Leather",
+        },
+        {
+          name: "ADIZERO UBERSONIC",
+          coin: 3800000,
+          url: "image_product.io/sadizero/sadi0.jpg",
+          material: "Leather",
+        },
+        {
+          name: "SUPERSTAR XLG SHOES",
+          coin: 3000000,
+          url: "image_product.io/supernova/super2.jpg",
+          material: "Leather",
+        },
+        {
+          name: "STAN SMITH LUX SHOES",
+          coin: 3000000,
+          url: "image_product.io/stan/stan1.jpg",
+          material: "Leather",
+        },
+        {
+          name: "ULTRABOOST 1.0 SHOES",
+          coin: 4500000,
+          url: "image_product.io/ultraBoost/ultra1.jpg",
+          material: "Leather",
+        },
+        {
+          name: "RESPONSE CL SHOES",
+          coin: 3300000,
+          url: "image_product.io/Respon/respon1.jpg",
+          material: "Leather",
+        },
+        {
+          name: "BARRICADE 13 TENNIS",
+          coin: 4000000,
+          url: "image_product.io/supernova/superstar.jpg",
+          material: "Leather",
+        },
+        {
+          name: "ADIZERO TAKUMI SEN 10",
+          coin: 5000000,
+          url: "image_product.io/faricdade/faricade1.png",
+          material: "Leather",
+        },
+        {
+          name: "RIVALRY SUMMER LOW",
+          coin: 2600000,
+          url: "image_product.io/supernova/superstarLXG.jpg",
+          material: "Leather",
+        },
+        {
+          name: "GAZELLE SHOES",
+          coin: 2900000,
+          url: "image_product.io/stan/stan3.png",
+          material: "Leather",
+        },
+        {
+          name: "DURAMO 10 SHOES",
+          coin: 1900000,
+          url: "image_product.io/rivalry/rivalry.jpg",
+          material: "Leather",
+        },
+        {
+          name: "STAN SMITH SHOES",
+          coin: 2600000,
+          url: "image_product.io/gazelle/gazelle.jpg",
+          material: "Leather",
+        },
+      ];
+
+      // Lấy danh sách sản phẩm từ localStorage
+      function getProducts() {
+        return JSON.parse(localStorage.getItem("products")) || [];
+      }
+
+      // Lưu danh sách sản phẩm vào localStorage
+      function setProducts(products) {
+        localStorage.setItem("products", JSON.stringify(products));
+      }
+
+      // Hàm render danh sách sản phẩm
+      function renderProducts() {
+        const products = getProducts();
+        const productList = document.getElementById("product-list");
+
+        // Xóa nội dung cũ đi để cập nhật lại danh sách
+        productList.innerHTML = "";
+
+        // Thêm từng sản phẩm vào tbody
+        products.forEach((product, index) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+      <td>${product.name}</td>
+      <td>${product.coin.toLocaleString("vi-VN")}đ</td>
+      <td><img src="${
+        product.url
+      }" style="max-width: 100px; max-height: 100px;" /></td>
+      <td>${product.material}</td>
+      <td>
+        <button class="btn btn-edit" data-index="${index}">Sửa</button>
+        <button class="btn btn-delete" data-index="${index}">Xóa</button>
+      </td>
+    `;
+          productList.appendChild(row);
+        });
+
+        // Sau khi render danh sách sản phẩm, gắn sự kiện cho các nút Sửa và Xóa
+        addEventListeners();
+      }
+
+      // Thêm sự kiện submit form để thêm hoặc sửa sản phẩm
+      document
+        .getElementById("product-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const name = document.getElementById("name").value;
+          const coin = parseInt(document.getElementById("coin").value);
+          const url = document.getElementById("url").value;
+          const material = document.getElementById("material").value;
+
+          const productForm = document.getElementById("product-form");
+          const editIndex = productForm.dataset.editIndex;
+
+          if (editIndex !== undefined) {
+            // Nếu có chỉ số index trong dataset thì là sửa sản phẩm
+            let products = getProducts();
+            products[editIndex] = { name, coin, url, material };
+            setProducts(products);
+            delete productForm.dataset.editIndex;
+          } else {
+            // Nếu không có index thì là thêm sản phẩm mới
+            let newProduct = { name, coin, url, material };
+            let products = getProducts();
+            products.push(newProduct);
+            setProducts(products);
+          }
+          // Sau khi thêm hoặc sửa xong, render lại danh sách sản phẩm
+          renderProducts();
+
+          // Reset form
+          productForm.reset();
+        });
+
+      // Thêm sự kiện click cho nút Sửa và Xóa sản phẩm
+      function addEventListeners() {
+        document
+          .getElementById("product-list")
+          .addEventListener("click", function (event) {
+            if (event.target.classList.contains("btn-edit")) {
+              const index = event.target.dataset.index;
+              let products = getProducts();
+              const product = products[index];
+
+              // Đưa dữ liệu của sản phẩm cần sửa vào form
+              document.getElementById("name").value = product.name;
+              document.getElementById("coin").value = product.coin;
+              document.getElementById("url").value = product.url;
+              document.getElementById("material").value = product.material;
+
+              // Lưu chỉ số index vào dataset để biết là đang sửa sản phẩm nào
+              document.getElementById("product-form").dataset.editIndex = index;
+            } else if (event.target.classList.contains("btn-delete")) {
+              const index = event.target.dataset.index;
+              let products = getProducts();
+              products.splice(index, 1);
+              setProducts(products);
+
+              // Sau khi xóa sản phẩm, render lại danh sách sản phẩm
+              renderProducts();
+            }
+          });
+      }
+
+      // Render danh sách sản phẩm lúc load trang
+      document.addEventListener("DOMContentLoaded", function () {
+        // Nếu localStorage trống, khởi tạo với initialProducts
+        if (getProducts().length === 0) {
+          setProducts(initialProducts);
+        }
+        renderProducts();
+      });
+
+      // Hàm logout (để demo, chức năng logout sẽ không được cung cấp ở đây)
+      function logout() {
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>
